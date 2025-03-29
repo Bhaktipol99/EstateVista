@@ -92,6 +92,7 @@ interface, clear processes, and responsive design make it accessible to a wide a
  including non-tech-savvy individuals.
  Reliability: The system should have minimal downtime and ensure smooth
  functionality.
+ 
 **SYSTEM REQUIREMENTS**
  Hardware Requirements (Local Development)
  System Requirements: Minimum 4GB RAM, Dual-Core Processor
