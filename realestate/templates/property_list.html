@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/property_list.css' %}">
+    <title>Property List</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Property Listings</h2>
+        <a href="{% url 'add_property' %}" class="btn">Add New Property</a>
+        
+        {% if messages %}
+        <script>
+            {% for message in messages %}
+                alert("{{ message }}");  // Show success message as popup
+            {% endfor %}
+        </script>
+        {% endif %}
+        
+        <table border="1">
+            <tr>
+                <th>Name</th>
+                <th>Location</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+            {% for property in properties %}
+            <tr>
+                <td>{{ property.name }}</td>
+                <td>{{ property.location }}</td>
+                <td>₹{{ property.price }}/-</td>
+                <td>{{ property.description }}</td>
+                <td>
+                    {% if property.image %}
+                        <img src="{{ property.image.url }}" alt="Property Image" width="100">
+                    {% else %}
+                        No Image
+                    {% endif %}
+                </td>
+                <td>
+                    <!-- View link for full details -->
+                    <a href="{% url 'property_detail' property.id %}">View Details</a> |
+
+                    {% if property.owner == request.user %}
+                        <!-- If the logged-in user is the owner, show Edit & Delete -->
+                        <a href="{% url 'edit_property' property.pk %}">Edit</a> |
+                        <a href="{% url 'delete_property' property.id %}" onclick="return confirm('Are you sure you want to delete this property?');">Delete</a>
+                    {% else %}
+                        <!-- If the property belongs to another user, show Buy Now and Save -->
+                        <a href="{% url 'buy_property' property.id %}">Buy Now</a> |
+                        <form action="{% url 'save_property' property.id %}" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit">Save</button>
+                        </form>
+                    {% endif %}
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="6">No properties available</td> <!-- Updated colspan to match columns -->
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

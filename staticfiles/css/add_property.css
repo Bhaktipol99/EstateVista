@@ -1,0 +1,104 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif; /* ✨ More modern and readable font */
+    background-color: hsl(207, 26%, 93%);
+    display: flex;
+    flex-direction: column;
+    min-height: 80vh;
+    justify-content: center;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    background: linear-gradient(135deg, #3498db, #4a84be); /* ✨ Gradient effect */
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-size: 25px; /* ✨ Slightly bigger for better readability */
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2); /* ✨ Soft shadow */
+}
+
+/* Centered Form Container - Smaller Size */
+.container {
+    width: 100%;
+    max-width: 400px; /* 🔹 Reduce width */
+    padding: 15px; /* 🔹 Reduce padding to decrease height */
+    background: white;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    border-radius: 12px;
+    text-align: left;
+    margin: 70px auto; /* 🔹 Adjust margin for better spacing */
+}
+/* Form Fields - Compact */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+label {
+    font-weight: 600;
+    color: #333;
+    font-size: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* ✨ More rounded */
+    font-size: 15px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Input Focus Effect */
+input:focus, select:focus, textarea:focus {
+    border-color: #3498db;
+    box-shadow: 0px 0px 8px rgba(52, 152, 219, 0.4); /* ✨ Glowing border */
+    outline: none;
+}
+
+textarea {
+    resize: vertical;
+    height: 50px; /* ✨ Better height */
+}
+
+/* Upload Image Field */
+input[type="file"] {
+    padding: 5px;
+    border: none;
+    background: #ecf0f1; /* ✨ Light background */
+    border-radius: 5px;
+}
+
+/* Submit Button - Compact */
+.btn {
+    background: linear-gradient(135deg, #3498db, #2c3e50); /* ✨ Gradient button */
+    color: white;
+    border: none;
+    padding: 12px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #2980b9, #1c2833); /* ✨ Darker hover */
+    transform: scale(1.05); /* ✨ Slight pop effect */
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+}
+

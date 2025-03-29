@@ -1,0 +1,11 @@
+<h2>Payment Page</h2>
+{% include 'header.html' %}
+<!-- Order Details -->
+<p><strong>Order for:</strong> {{ order.property.name }}</p>
+<p><strong>Total Amount:</strong> ₹{{ order.total_amount }}</p>
+
+<!-- Dummy Payment Form -->
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Pay Now</button>
+</form>

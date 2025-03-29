@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{% static 'css/search_results.css' %}">
+</head>
+<body>
+
+    <main class="search-container">
+        <h1>🏡 Search Results</h1>
+
+        {% if properties %}
+            <div class="property-list">
+                {% for property in properties %}
+                    <div class="property-card">
+                        <a href="{% url 'property_detail' property.id %}">
+                            {% if property.image %}
+                                <img src="{{ property.image.url }}" alt="Property Image" class="property-image">
+                            {% else %}
+                                <img src="{% static 'images/default-property.jpg' %}" alt="No Image Available" class="property-image">
+                            {% endif %}
+                            <h3>{{ property.name }}</h3>
+                            <p>Type: {{ property.get_property_type_display }}</p>
+                            <p>Status: {{ property.get_status_display }}</p>
+                            <p>Price: ₹{{ property.price }}</p>
+                            <p>Location: {{ property.location }}</p>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <p class="no-results">❌ No properties found. Try a different search!</p>
+        {% endif %}
+
+        <a href="{% url 'search_properties' %}" class="btn-back">🔙 Back to Search</a>
+    </main>
+
+</body>
+</html>

@@ -1,0 +1,115 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(45deg, #e3edf0, #dfe9f3); /* Light aesthetic background */
+    margin: 0;
+    padding: 1px;
+    display: block;
+    min-height: 100vh;
+}
+
+/* Form Container */
+.container {
+    width: 20%;
+    max-width: 200px;
+    background: white;
+    padding: 35px;
+    border-radius: 5px;
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
+    margin: 40px auto;
+}
+
+/* Heading */
+h2 {
+    text-align: center;
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0px; /* Adds spacing between elements */
+}
+
+/* Labels */
+form label {
+    font-weight: 600;
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 3px;
+}
+
+/* Input Fields */
+form input, form select, form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+    background: #f9f9f9;
+}
+
+/* Padding fix - Proper Spacing */
+form input, form select {
+    margin-bottom: 4px;
+}
+
+/* Two-column Layout */
+.form-group {
+    display: flex;
+    gap: 10px;
+}
+
+.form-group input, .form-group select {
+    flex: 1; /* Equal width */
+}
+
+/* Smaller Textarea */
+form textarea {
+    height: 60px;
+    resize: vertical;
+}
+
+/* Submit Button */
+.btn {
+    background: linear-gradient(135deg, #50c9c3, #96deda);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #3ab0a2, #78c9c8);
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .form-group {
+        flex-direction: column;
+    }
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

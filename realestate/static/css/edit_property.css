@@ -1,0 +1,141 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #eef2f3, #dfe9f3);
+    margin: 0;
+    padding: 0;
+}
+
+/* Fixed Header (Prevents Overlapping) */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; /* Adjust height if needed */
+    background: #007bff;
+    color: white;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 15px;
+    text-align: center;
+    z-index: 1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Container */
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    margin: 80px auto 40px; /* Prevents overlap with header */
+}
+
+/* Page Title */
+.container h2 {
+    text-align: left;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Form Group */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Labels */
+.form-group label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+/* Input Fields */
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+    font-size: 14px;
+    background: #f8f9fa;
+    transition: border-color 0.3s ease-in-out;
+}
+
+/* Input Hover & Focus Effect */
+.form-group input:hover, 
+.form-group select:hover, 
+.form-group textarea:hover {
+    border-color: #007bff;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
+    outline: none;
+}
+
+/* Error Messages */
+.error {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+/* Success Messages */
+.alert {
+    background: #d4edda;
+    color: #155724;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+/* Submit Button */
+.btn {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 14px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, #0056b3, #003c82);
+    transform: scale(1.05);
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+        margin-top: 100px; /* Ensures form does not overlap with header */
+    }
+
+    header {
+        font-size: 18px;
+        padding: 12px;
+        height: 70px;
+    }
+}

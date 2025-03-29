@@ -1,0 +1,66 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile - EstateVista</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit_profile.css' %}">
+   
+</head>
+<body>
+
+    <main class="profile-edit-container">
+        <h2>Edit Profile</h2>
+        <form method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            <!-- Profile Picture Preview -->
+            <div class="profile-preview">
+                {% if user.profile.image and user.profile.image.url %}
+                    <img src="{{ user.profile.image.url }}" alt="Profile Picture" id="profilePreview" class="profile-pic">
+                {% else %}
+                    <img src="{% static 'images/default-profile.jpg' %}" alt="Profile Picture" id="profilePreview" class="profile-pic">
+                {% endif %}
+                <input type="file" id="profile_image" name="profile_image" accept="image/*" onchange="previewImage(event)">
+            </div>
+            
+
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="{{ user.email }}" required>
+
+            <label for="first_name">First Name:</label>
+            <input type="text" id="first_name" name="first_name" value="{{ user.first_name }}">
+
+            <label for="last_name">Last Name:</label>
+            <input type="text" id="last_name" name="last_name" value="{{ user.last_name }}">
+
+            <label for="phone_number">Phone Number:</label>
+            <input type="text" id="phone_number" name="mobile" value="{{ user.profile.mobile }}">
+
+            <button type="submit" class="btn btn-success">Save Changes</button>
+            <a href="{% url 'profile' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </main>
+
+
+    <script>
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const preview = document.getElementById('profilePreview');
+                preview.src = reader.result;
+            }
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    </script>
+
+</body>
+</html>

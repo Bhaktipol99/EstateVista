@@ -1,0 +1,63 @@
+/* Center container and apply basic styling */
+.inbox-container {
+    width: 60%;
+    margin: auto;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+}
+
+/* Style the header */
+.inbox-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.inbox-header h1 {
+    margin: 0;
+}
+
+.btn {
+    text-decoration: none;
+    background-color: #fff;
+    color: #007bff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    border: 1px solid #007bff;
+}
+
+.btn:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Message list container */
+.message-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.message-box {
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message-box strong {
+    color: #333;
+}
+
+.no-messages {
+    text-align: center;
+    font-size: 16px;
+    color: #666;
+    margin-top: 20px;
+}

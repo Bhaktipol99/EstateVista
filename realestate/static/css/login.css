@@ -1,0 +1,124 @@
+/* General Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffcc00, #de7094, #ffcc00);
+    overflow: hidden;
+}
+
+/* Login Container */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+/* Heading */
+h2 {
+    color: #333;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+h2 span {
+    color: #ffcc00;
+}
+
+/* Subtitle */
+.subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.input-group label {
+    font-weight: bold;
+    color: #333;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #ffcc00;
+    box-shadow: 0 0 6px rgba(255, 204, 0, 0.4);
+}
+
+/* Error Messages */
+.errors {
+    color: red;
+    font-size: 13px;
+    list-style: none;
+    padding-left: 0;
+}
+
+.error {
+    background: #ffebeb;
+    color: #d9534f;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Login Button */
+.btn {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    background: #ffcc00;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+    background: #e6b800;
+    transform: translateY(-2px);
+}
+
+/* Register Link */
+.register-link {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #000;
+}
+
+.register-link a {
+    color: #ffcc00;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.register-link a:hover {
+    color: #e6b800;
+    text-decoration: underline;
+}

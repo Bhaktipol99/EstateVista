@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | EstateVista</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>Contact EstateVista</h1>
+    </header>
+
+    <section>
+        <h2>We'd Love to Hear From You!</h2>
+        <p>If you have any questions, feedback, or need assistance, please reach out to us using the contact form below. Our team is happy to help!</p>
+    </section>
+
+    <section>
+        <h2>Contact Form</h2>
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <label for="name">Your Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Your Message:</label><br>
+            <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section>
+        <h2>Our Contact Information</h2>
+        <p>If you prefer to reach us directly, here are our contact details:</p>
+        <ul>
+            <li><strong>Email:</strong> support@estatevista.com</li>
+            <li><strong>Phone:</strong> +1 234 567 890</li>
+            <li><strong>Office Address:</strong> 123 Real Estate Street, City, Country</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 EstateVista. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>

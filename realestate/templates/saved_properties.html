@@ -1,0 +1,43 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved Properties</title>
+    <link rel="stylesheet" href="{% static 'css/saved_property.css' %}">
+</head>
+<body>
+
+    <!-- Include Header -->
+    {% include 'header.html' %}
+
+    <h2>Favorites</h2>
+
+    {% if saved_properties %}
+    <div class="saved-properties">
+        {% if saved_properties %}
+            {% for saved in saved_properties %}
+                <div class="property-card">
+                    <a href="{% url 'property_detail' saved.property.id %}" class="property-link">
+                        <strong>{{ saved.property.name }}</strong>
+                    </a>
+                    <p class="property-details">{{ saved.property.location }} - {{ saved.property.price }}</p>
+    
+                    <form action="{% url 'save_unsave_property' saved.property.id %}" method="post">
+                        {% csrf_token %}
+                        <button type="submit" class="unsave-btn">Unsave</button>
+                    </form>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="no-properties">No saved properties yet.</p>
+        {% endif %}
+    </div>
+    
+    {% else %}
+        <p>No saved properties yet.</p>
+    {% endif %}
+
+</body>
+</html>

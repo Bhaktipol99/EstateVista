@@ -1,0 +1,26 @@
+<h2>Checkout Page</h2>
+
+<!-- Property Image -->
+{% if order.property.image %}
+    <img src="{{ order.property.image.url }}" alt="{{ order.property.name }}" width="300">
+{% else %}
+    <p>No Image Available</p>
+{% endif %}
+
+<!-- Property Details -->
+<p><strong>Property Name:</strong> {{ order.property.name }}</p>
+<p><strong>Location:</strong> {{ order.property.location }}</p>
+<p><strong>Price:</strong> ₹{{ order.total_amount }}</p>
+<p><strong>Description:</strong> {{ order.property.description }}</p>
+
+<!-- Confirmation Message -->
+<p><strong>Do you want to proceed with the payment?</strong></p>
+
+<!-- Payment Form -->
+<form method="POST" action="{% url 'payment_page' order_id=order.id %}">
+    {% csrf_token %}
+    <!-- Add your form fields here -->
+    <button type="submit">Proceed to Pay</button>       
+    <!-- Cancel Button -->
+    <button type="button" onclick="window.location.href='{% url 'other_users_properties' %}'">Cancel</button>
+</form>

@@ -1,0 +1,58 @@
+    {% load static %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EstateVista</title>
+        <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    </head>
+    <body>
+
+        <header class="header">
+            <div class="header-container">
+                <h1>EstateVista</h1>
+                <nav>
+                    <ul class="nav-list">
+                        <li><a href="{% url 'dashboard' %}" class="nav-link">Dashboard</a></li>
+
+                        <!-- Property Management -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">Properties ▼</a>
+                            <div class="dropdown-content">
+                                <a href="{% url 'add_property' %}">Add Property</a>
+                                <a href="{% url 'property_list' %}">Manage Properties</a>
+                                <a href="{% url 'saved_properties' %}">My Wishlist</a>
+                                
+
+
+                            </div>
+                        </li>
+
+                        <!-- Search -->
+                        <li><a href="{% url 'search_properties' %}" class="nav-link">Search</a></li>
+
+                        <!-- Messages & Notifications -->
+                        <li><a href="{% url 'inbox' %}" class="nav-link">Messages</a></li>
+                        <li><a href="{% url 'other_users_properties' %}">Buy Now</a></li>
+
+                        <!-- User Profile -->
+                        <li class="dropdown">
+                            <a href="#" class="nav-link">My Profile ▼</a>
+                            <div class="dropdown-content">
+                                <a href="{% url 'profile' %}">View Profile</a>
+                                <a href="{% url 'edit_profile' %}">Edit Profile</a>
+                                <hr class="dropdown-divider">
+                                <form action="{% url 'logout' %}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit" class="logout-btn">Logout</button>
+                                </form>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+    </body>
+    </html>

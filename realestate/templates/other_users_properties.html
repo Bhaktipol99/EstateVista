@@ -1,0 +1,48 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'css/property_list.css' %}">
+    <title>Other Users' Properties</title>
+</head>
+<body>
+    {% include 'header.html' %}
+    <h1>Available Properties for Sale</h1>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Owner</th>
+            <th>Action</th>
+            <th>View</th>
+            <th>Save</th>
+        </tr>
+        {% for property in properties %}
+        <tr>
+            <td>{{ property.name }}</td>
+            <td>₹{{ property.price }}/-</td>
+            <td>{{ property.owner }}</td>
+            <td>
+                {% if property.status == 'sold' %}
+                    <button disabled>Sold</button>
+                {% else %}
+                    <!-- Redirects to the payment page -->
+                    <a href="{% url 'payment_page' property.id %}"><button>Buy Now</button></a>
+                {% endif %}
+            </td>
+            <td><a href="{% url 'property_detail' property.id %}">View Details</a></td>
+            <td>
+                {% if user.is_authenticated %}
+                    <form method="post" action="{% url 'save_property' property.id %}">
+                        {% csrf_token %}
+                        <button type="submit">Save Property</button>
+                    </form>
+                {% else %}
+                    <a href="{% url 'login' %}">Login to Save</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

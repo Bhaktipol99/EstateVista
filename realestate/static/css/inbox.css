@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2; /* Light Gray Background */
+    margin: 0;
+    padding: 0;
+}
+
+.inbox-header {
+    background: #007bff; /* Blue Header */
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
+.inbox-header nav {
+    margin-top: 10px;
+}
+
+.inbox-header .btn {
+    color: white;
+    background: #0056b3;
+    padding: 8px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    margin: 5px;
+}
+
+
+
+.message-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.message-box {
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 4px solid #007bff;
+    margin-bottom: 10px;
+}
+
+.no-messages {
+    text-align: center;
+    color: gray;
+}

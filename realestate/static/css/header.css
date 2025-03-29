@@ -1,0 +1,182 @@
+/* Header Styles */
+header {
+    background: rgba(12, 119, 234, 0.8); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Glass morphism effect */
+    padding: 15px 20px;
+    color: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header h1 {
+    font-size: 28px;
+    font-weight: 700;
+    margin: 0;
+    letter-spacing: 1px;
+    background: linear-gradient(45deg, #ffffff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 0.3s ease;
+}
+
+header h1:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff6b6b, #ffffff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    padding: 10px 15px;
+    display: flex;
+    align-items: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: #ff6b6b;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+nav ul li a:hover {
+    color: #ff6b6b;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background: rgba(0, 86, 179, 0.9); /* Semi-transparent background */
+    backdrop-filter: blur(10px); /* Glass morphism effect */
+    min-width: 200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    border-radius: 8px;
+    overflow: hidden;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Dropdown Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding-left: 20px;
+    color: #ff6b6b;
+}
+
+/* Divider in Dropdown */
+.dropdown-content hr {
+    margin: 5px 0;
+    border: 0.5px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Dropdown Toggle Icon */
+.dropdown-toggle::after {
+    content: '▼';
+    margin-left: 5px;
+    font-size: 12px;
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle::after {
+    transform: rotate(180deg);
+}
+
+/* Hover Effect for Dropdown Toggle */
+.dropdown-toggle:hover {
+    color: #ff6b6b;
+}
+
+/* Logout Button Styled Like a Link */
+.dropdown-content form {
+    margin: 0;
+    padding: 0;
+    display: block;
+    width: 100%;
+}
+
+.logout-btn {
+    width: 100%;
+    text-align: left;
+    background: none;
+    border: none;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #ce1916; /* Red logout text */
+    cursor: pointer;
+    display: block;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+/* Hover Effect */
+.logout-btn:hover {
+    background-color: #dc3545; /* Red hover effect */
+    color: white;
+    padding-left: 20px; /* Slight movement effect */
+    border-radius: 4px;
+}

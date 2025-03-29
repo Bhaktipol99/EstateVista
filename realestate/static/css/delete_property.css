@@ -1,0 +1,97 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #e3e7ea);
+    margin: 0;
+    padding: 0;
+}
+
+/* Form Container */
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    width: 90%;
+    margin: 100px auto; /* Centers horizontally without affecting header */
+}
+
+/* Heading */
+.container h2 {
+    color: #333;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+/* Property Details */
+.container p {
+    color: #555;
+    font-size: 15px;
+    margin: 8px 0;
+}
+
+/* Image Styling */
+.container img {
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    margin: 10px 0;
+    display: block;
+}
+
+/* Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Delete Button (Red) */
+.btn-danger {
+    background: linear-gradient(135deg, #ff4d4d, #c0392b);
+    color: white;
+}
+
+.btn-danger:hover {
+    background: linear-gradient(135deg, #c0392b, #a93226);
+    transform: scale(1.05);
+}
+
+/* Cancel Button (Grey) */
+.btn-secondary {
+    background: linear-gradient(135deg, #bdc3c7, #7f8c8d);
+    color: white;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.btn-secondary:hover {
+    background: linear-gradient(135deg, #7f8c8d, #636e72);
+    transform: scale(1.05);
+}
+
+/* Responsive Fix */
+@media (max-width: 600px) {
+    .container {
+        width: 95%;
+        padding: 25px;
+        margin: 120px auto; /* Ensures form does not overlap with header */
+    }
+}

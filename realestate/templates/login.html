@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estate Vista - Login</title>
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            {% if messages %}
+                {% for message in messages %}
+                    {% if "Login successful" in message.message %}
+                        alert("{{ message.message }}");  
+                        window.location.href = "{% url 'dashboard' %}";  // ✅ Redirect to Dashboard after clicking OK
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+        });
+    </script>
+    <div class="login-container">
+        <div class="login-box">
+            <h2>Welcome to <span>Estate Vista</span></h2>
+            <p class="subtitle">Your trusted real estate partner</p>
+            
+            <!-- Login Form -->
+            <form method="POST">
+                {% csrf_token %}
+                
+                <!-- Display errors if any -->
+                {% if form.non_field_errors %}
+                    <div class="error">
+                        <ul>
+                            {% for error in form.non_field_errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                {% endif %}
+                
+                <div class="input-group">
+                    <label for="username"><i class="fas fa-user"></i> Username</label>
+                    <input type="text" id="username" name="username" placeholder="Enter your username" value="{{ form.username.value }}" required>
+                    {% if form.username.errors %}
+                        <ul class="errors">
+                            {% for error in form.username.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <div class="input-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                    {% if form.password.errors %}
+                        <ul class="errors">
+                            {% for error in form.password.errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </div>
+
+                <button type="submit" class="btn">Login</button>
+                <p class="register-link">Don't have an account? <a href="{% url 'register_view' %}">Register here</a></p>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

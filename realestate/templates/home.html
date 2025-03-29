@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstateVista</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <h1>EstateVista</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'login' %}">Login</a></li>
+                <li><a href="{% url 'register_view' %}">Register</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Your Dream Home Awaits</h1>
+        <p>Find the perfect property that suits your needs and lifestyle.</p>
+    </section>
+
+    <section class="testimonials">
+        <h2>What Our Clients Say</h2>
+        <div class="testimonial">
+            <p>"EstateVista helped me find my dream home effortlessly. The experience was smooth and stress-free!"</p>
+            <h4>- Alex Johnson</h4>
+        </div>
+        <div class="testimonial">
+            <p>"Highly professional team! They guided me through the entire buying process with ease."</p>
+            <h4>- Sarah Williams</h4>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+<section class="why-choose-us">
+    <h2>Why Choose Us?</h2>
+    <div class="features-grid">
+        <div class="feature-box">
+            <div class="icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3179/3179068.png" alt="Trusted Agents">
+            </div>
+            <h3>Trusted Agents</h3>
+            <p>Work with verified experts who ensure a smooth and reliable property experience.</p>
+        </div>
+        <div class="feature-box">
+            <div class="icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/2097/2097161.png" alt="Verified Listings">
+            </div>
+            <h3>Verified Listings</h3>
+            <p>We ensure all properties listed are 100% verified and accurate for your peace of mind.</p>
+        </div>
+        <div class="feature-box">
+            <div class="icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/3063/3063821.png" alt="Secure Transactions">
+            </div>
+            <h3>Secure Transactions</h3>
+            <p>Our secure payment methods and legal support make every deal transparent and safe.</p>
+        </div>
+        <div class="feature-box">
+            <div class="icon">
+                <img src="https://cdn-icons-png.flaticon.com/512/1041/1041916.png" alt="Personalized Support">
+            </div>
+            <h3>24/7 Support</h3>
+            <p>Our dedicated support team is always available to assist you with any queries.</p>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer Section -->
+    <footer>
+        <p>&copy; 2025 EstateVista. All Rights Reserved.</p>
+    </footer>
+</body>
+
+</html>

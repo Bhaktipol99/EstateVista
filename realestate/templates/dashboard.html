@@ -1,0 +1,85 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EstateVista Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+
+    <!-- Main Content Area -->
+    <main class="dashboard-container">
+        <h2>Welcome {{ user.username }}!!!</h2>
+        <p>Your real estate dashboard. Manage your properties, view your profile, and more!</p>
+
+        <!-- Property Management Section -->
+        <div class="dashboard-grid">
+
+            <!-- Property Cards (Example) -->
+            <div class="dashboard-card">
+                <h3>Your Properties</h3>
+                <p>View, edit, or delete your properties here.</p>
+                <a href="{% url 'property_list' %}" class="btn btn-success">Manage Properties</a>
+            </div>
+
+            <!-- Property Creation Button -->
+            <div class="dashboard-card">
+                <h3>Add New Property</h3>
+                <p>Create a new listing to add your property to the marketplace.</p>
+                <a href="{% url 'add_property' %}" class="btn btn-primary">Add Property</a>
+            </div>
+
+            <!-- Profile Management Card -->
+            <div class="dashboard-card">
+                <h3>Your Profile</h3>
+                <p>Edit your personal details and update your profile.</p>
+                <a href="{% url 'profile' %}" class="btn btn-warning">Edit Profile</a>
+            </div>
+        </div>
+
+        <!-- Your Properties Section -->
+<div class="recent-properties">
+    <h3>Your Recent Listings</h3>
+    <ul class="property-list">
+        {% for property in user_properties %}
+            <li class="property-item">
+                <a href="{% url 'property_detail' property.id %}">
+                    <strong>{{ property.name }}</strong>
+                </a>
+                <br>
+                <small>{{ property.description }}</small>
+            </li>
+        {% empty %}
+            <p>You haven't added any properties yet.</p>
+        {% endfor %}
+    </ul>
+</div>
+
+       
+        <!-- Recently Added Properties (All Users) -->
+        <div class="recent-properties">
+            <h3>Recently Added Properties</h3>
+            <ul class="property-list">
+                {% for property in recent_properties %}
+                    <li class="property-item">
+                        <a href="{% url 'property_detail' property.id %}">
+                            <strong>{{ property.name }}</strong>
+                        </a>
+                        <br>
+                        <small>{{ property.description }}</small>
+                    </li>
+                {% empty %}
+                    <p>No new properties added yet.</p>
+                {% endfor %}
+            </ul>
+        </div>
+
+    
+</body>
+</html>

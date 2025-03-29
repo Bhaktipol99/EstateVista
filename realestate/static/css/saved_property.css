@@ -1,0 +1,112 @@
+/* General Page Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure Header Stays Unchanged */
+header {
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+/* Page Title */
+h2 {
+    text-align: center;
+    color: #2c3e50;
+    font-size: 24px;
+    margin-top: 20px;
+}
+
+/* Saved Properties Container */
+.saved-properties {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centering the cards */
+    gap: 20px; /* Space between cards */
+    padding: 20px;
+}
+
+/* Property Card */
+.property-card {
+    background: white;
+    width: 320px; /* Fixed width for each card */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Centering text */
+    transition: transform 0.3s ease;
+}
+
+.property-card:hover {
+    transform: scale(1.05); /* Hover effect */
+}
+
+/* Property Link */
+.property-link {
+    text-decoration: none;
+    color: #3498db;
+    font-size: 18px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 8px;
+    transition: color 0.3s ease;
+}
+
+.property-link:hover {
+    color: #2c3e50;
+}
+
+/* Property Details */
+.property-details {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+/* Unsave Button */
+.unsave-btn {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.unsave-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* Message when no properties are saved */
+.no-properties {
+    text-align: center;
+    font-size: 16px;
+    color: #555;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .saved-properties {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .property-card {
+        width: 90%;
+    }
+
+    .unsave-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 10px;
+    }
+}
+    

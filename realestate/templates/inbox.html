@@ -1,0 +1,40 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox - EstateVista</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/send.css' %}"> <!-- Fixed CSS path -->
+</head>
+<body>
+
+    <header class="inbox-header">
+        <h1>📥 Inbox</h1>
+        <nav>
+            <a href="{% url 'send_message' %}" class="btn">➕ Send Message</a>
+            <a href="{% url 'sent_message' %}" class="btn">📤 Sent Messages</a>
+        </nav>
+    </header>
+
+    <main class="inbox-container">
+        {% if messages %}
+            <ul class="message-list">
+                {% for message in messages %}
+                    <li class="message-box">
+                        <strong>From:</strong> {{ message.sender }} <br>
+                        <strong>Subject:</strong> {{ message.subject }} <br>
+                        <strong>Message:</strong> {{ message.body }} <br>
+                        <strong>Time:</strong> {{ message.timestamp }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p class="no-messages">No messages in your inbox.</p>
+        {% endif %}
+    </main>
+
+</body>
+</html>

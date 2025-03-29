@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/edit_property.css' %}">
+    <title>Edit Property</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Edit Property</h2>
+
+        {% if messages %}
+            <div class="alert">
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            
+            <!-- Property Name -->
+            <div class="form-group">
+                <label for="{{ form.name.id_for_label }}">Property Name</label>
+                {{ form.name }}
+            </div>
+        
+            <!-- Property Description -->
+            <div class="form-group">
+                <label for="{{ form.description.id_for_label }}">Description</label>
+                {{ form.description }}
+            </div>
+        
+            <!-- Property Location -->
+            <div class="form-group">
+                <label for="{{ form.location.id_for_label }}">Location</label>
+                {{ form.location }}
+            </div>
+        
+            <!-- Property Price -->
+            <div class="form-group">
+                <label for="{{ form.price.id_for_label }}">Price</label>
+                {{ form.price }}
+            </div>
+        
+            <!-- Property Image -->
+            <div class="form-group">
+                <label for="{{ form.image.id_for_label }}">Image</label>
+                {{ form.image }}
+            </div>
+        
+            <!-- Property Status -->
+            <div class="form-group">
+                <label for="{{ form.status.id_for_label }}">Status</label>
+                {{ form.status }}
+            </div>
+        
+            <!-- Property Area -->
+            <div class="form-group">
+                <label for="{{ form.area_sqft.id_for_label }}">Area (sq. ft.)</label>
+                {{ form.area_sqft }}
+                {% if form.area_sqft.errors %}
+                    <div class="error">{{ form.area_sqft.errors }}</div>
+                {% endif %}
+            </div>
+        
+            <!-- Number of Bedrooms -->
+        
+            <div class="form-group">
+                <label for="{{ form.bedrooms.id_for_label }}">Bedrooms</label>
+                {{ form.bedrooms }}
+                {% if form.bedrooms.errors %}
+            <div class="error">{{ form.bedrooms.errors }}</div>
+                 {% endif %}
+            </div>
+
+<!-- Number of Bathrooms -->
+<div class="form-group">
+    <label for="{{ form.bathrooms.id_for_label }}">Bathrooms</label>
+    {{ form.bathrooms }}
+    {% if form.bathrooms.errors %}
+        <div class="error">{{ form.bathrooms.errors }}</div>
+    {% endif %}
+</div>
+
+<!-- Property Type -->
+<div class="form-group">
+    <label for="{{ form.property_type.id_for_label }}">Property Type</label>
+    {{ form.property_type }}
+    {% if form.property_type.errors %}
+        <div class="error">{{ form.property_type.errors }}</div>
+    {% endif %}
+</div>
+            <button type="submit" class="btn">Save Changes</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Properties</title>
+    <link rel="stylesheet" href="{% static 'css/search.css' %}">
+</head>
+<body>
+
+    <main class="search-container">
+        <h1>🏡 Search Properties</h1>
+
+        <form method="GET" action="{% url 'search_properties' %}">
+            <input type="text" name="query" placeholder="🔍 Search by name or location" class="search-input">
+            
+            <select name="property_type" class="search-select">
+                <option value="">🏠 Property Type</option>
+                <option value="apartment">Apartment</option>
+                <option value="villa">Villa</option>
+                <option value="office">Office</option>
+            </select>
+
+            <select name="status" class="search-select">
+                <option value="">📍 Property Status</option>
+                <option value="available">Available</option>
+                <option value="sold">Sold</option>
+                <option value="rented">Rented</option>
+                <option value="pending">Pending</option>
+            </select>
+
+            <select name="price_range" class="search-select">
+                <option value="">💰 Price Range</option>
+                <option value="0-500000">Below ₹5 Lakh</option>
+                <option value="500000-1000000">₹5 Lakh - ₹10 Lakh</option>
+                <option value="1000000-5000000">₹10 Lakh - ₹50 Lakh</option>
+                <option value="5000000+">Above ₹50 Lakh</option>
+            </select>
+
+            <button type="submit" class="btn-search">🔍 Search</button>
+        </form>
+    </main>
+
+</body>
+</html>

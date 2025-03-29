@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/view_property.css' %}">
+
+    <title>{{ property.name }} - Details</title>
+</head>
+<body>
+    <div class="container">
+        <!-- Property Name -->
+        <h2>{{ property.name }}</h2>
+
+        <!-- Property Image -->
+        {% if property.image %}
+            <img src="{{ property.image.url }}" alt="{{ property.name }}" width="300">
+        {% else %}
+            <p>No Image Available</p>
+        {% endif %}
+
+        <!-- Property Price -->
+        <p><strong>Price:</strong> ₹{{ property.price }}/-</p>
+
+        <!-- Property Type -->
+        <p><strong>Type:</strong> {{ property.property_type }}</p>
+
+        <!-- Property Status -->
+        <p><strong>Status:</strong> 
+            {% if property.status == 'available' %}
+               Available
+            {% elif property.status == 'Sold' %}
+                sold
+            {% else %}
+                Unknown Status
+            {% endif %}
+        </p>
+
+        <!-- Property Area -->
+        <p><strong>Area:</strong> {{ property.area_sqft }} sq. ft.</p>
+
+        <!-- Number of Bedrooms -->
+        <p><strong>Bedrooms:</strong> {{ property.bedrooms }}</p>
+
+        <!-- Number of Bathrooms -->
+        <p><strong>Bathrooms:</strong> {{ property.bathrooms }}</p>
+
+        <!-- Property Description -->
+        <p><strong>Description:</strong> {{ property.description }}</p>
+
+        <!-- Property Location -->
+        <p><strong>Location:</strong> {{ property.location }}</p>
+
+       
+        
+
+        <!-- Back to Property List Button -->
+        <a href="{% url 'property_list' %}" class="btn">Back to Property List</a>
+    </div>
+</body>
+</html>

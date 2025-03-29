@@ -1,0 +1,142 @@
+/* Body and HTML to ensure footer stays at the bottom */
+html, body {
+    height: 100%; 
+    margin: 0; 
+    display: flex; 
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Modern font stack */
+    line-height: 1.6; /* Improved line spacing */
+}
+
+/* Main content wrapper to push footer down */
+.main-content {
+    flex: 1; /* Takes up remaining space */
+    padding-bottom: 80px; /* Adjusted padding to match the smaller footer height */
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(135deg, #2575fc, #1e3c72); /* Blue gradient */
+    color: white;
+    padding: 10px 10px; /* Reduced padding for smaller height */
+    text-align: center;
+    font-size: 1em; /* Slightly smaller font size */
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; /* Fixed position */
+    bottom: 0; /* Stick to the bottom */
+    left: 0; /* Align to the left */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for separation */
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1000; /* Ensures footer stays above other content */
+    height: auto; /* Auto height to fit content */
+    padding: 5px 0;
+}
+
+
+/* Footer Content Container */
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Reduced gap for smaller height */
+}
+
+/* Footer Links */
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Reduced gap */
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 10px; /* Added padding for better clickability */
+    border-radius: 5px; /* Rounded corners for links */
+}
+
+.footer-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #ff9f43; /* Vibrant orange underline color */
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover::after {
+    width: 100%;
+}
+
+.footer-links a:hover {
+    color: #ff9f43; /* Hover color */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background on hover */
+}
+
+/* Footer Social Icons */
+.footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Reduced gap */
+    margin-top: 10px; /* Reduced margin */
+}
+
+.footer-social a {
+    color: white;
+    font-size: 1.5em; /* Slightly smaller icons */
+    transition: all 0.3s ease;
+    padding: 8px; /* Reduced padding */
+    border-radius: 50%; /* Circular icons */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight background for icons */
+}
+
+.footer-social a:hover {
+    color: #ff9f43; /* Hover color */
+    transform: translateY(-5px); /* Lift effect on hover */
+    background-color: rgba(255, 255, 255, 0.2); /* Darker background on hover */
+}
+
+/* Footer Text */
+.footer-text {
+    margin-top: 10px; /* Reduced margin */
+    font-size: 0.85em; /* Slightly smaller font size */
+    opacity: 0.9;
+    line-height: 1.6; /* Improved line spacing */
+}
+
+/* Footer Bottom Section */
+.footer-bottom {
+    margin-top: 8px; /* Reduced margin */
+    padding-top: 8px; /* Reduced padding */
+    border-top: 1px solid rgba(255, 255, 255, 0.1); /* Subtle border for separation */
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 0.85em; /* Slightly smaller font size */
+    opacity: 0.8;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .footer-links {
+        flex-direction: column;
+        gap: 10px; /* Reduced gap */
+    }
+
+    .footer-social {
+        gap: 10px; /* Reduced gap */
+    }
+
+    .footer-social a {
+        font-size: 1.3em; /* Slightly smaller icons on mobile */
+    }
+}

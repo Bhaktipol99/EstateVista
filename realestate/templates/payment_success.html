@@ -1,0 +1,15 @@
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<h2>Payment Successful!</h2>
+<p>Thank you for your payment. Your order has been processed, and the property is now marked as Sold.</p>
+
+<!-- Link to go back to the property listings -->
+<a href="{% url 'other_users_properties' %}">Back to Property Listings</a>
+
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}

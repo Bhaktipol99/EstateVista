@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/delete_property.css' %}">
+    
+    <title>Delete Property</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Are you sure you want to delete the property: {{ property.name }}?</h2>
+        <p>Location: {{ property.location }}</p>
+        <p>Price: ₹{{ property.price }}/-</p>
+        <p>Description: {{ property.description }}</p>
+        {% if property.image %}
+            <p><img src="{{ property.image.url }}" alt="Property Image" width="200"></p>
+        {% else %}
+            <p>No Image</p>
+        {% endif %}
+
+        {% if messages %}
+    <script>
+        
+        {% for message in messages %}
+            alert("{{ message }}");  
+        {% endfor %}
+    </script>
+{% endif %}
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="{% url 'property_list' %}" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</body>
+</html>

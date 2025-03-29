@@ -1,0 +1,47 @@
+{% load static %}
+{% include 'header.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sent Messages - EstateVista</title>
+    <link rel="stylesheet" href="{% static 'css/send.css' %}">
+</head>
+<body>
+
+    <header>
+        <h1>📤 Sent Messages</h1>
+        <a href="{% url 'inbox' %}">📥 Inbox</a>
+        <a href="{% url 'send_message' %}">➕ Send Message</a>
+       
+    </header>
+
+    <main>
+        {% if messages %}
+            <ul>
+                {% for message in messages %}
+                    <li>
+                        <strong>To:</strong> {{ message.receiver }} <br>
+                        <strong>Subject:</strong> {{ message.subject }} <br>
+                        <strong>Message:</strong> {{ message.body }} <br>
+                        <strong>Time:</strong> {{ message.timestamp }}
+                    </li>
+                    <hr>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No sent messages.</p>
+        {% endif %}
+    </main>
+    {% if messages %}
+    {% for message in messages %}
+        {% if "Message sent successfully!" not in message %}
+            <p>{{ message }}</p>
+        {% endif %}
+    {% endfor %}
+{% endif %}
+
+</body>
+</html>

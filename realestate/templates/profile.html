@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include 'header.html' %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - EstateVista</title>
+    <link rel="stylesheet" href="{% static 'css/header.css' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+    
+</head>
+<body>
+
+    <main class="profile-container">
+        <h2>My Profile</h2>
+        <div class="profile-details">
+            <img src="{{ user.profile.image.url }}" alt="Profile Picture" class="profile-pic">
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Full Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Phone Number:</strong> {{ user.profile.mobile }}</p> <!-- Ensure phone_number field exists -->
+            <p><strong>Joined On:</strong> {{ user.date_joined|date:"F d, Y" }}</p>
+        </div>
+
+        <div class="profile-actions">
+            <a href="{% url 'edit_profile' %}" class="btn btn-warning">Edit Profile</a>
+            
+        </div>
+    </main>
+</body>
+</html>
