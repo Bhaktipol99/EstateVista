@@ -4,7 +4,8 @@
  management, and customer engagement. The
  platform provides users with seamless property listing,
  booking, and management functionalities.
- Scope:
+ 
+ **Scope:**
  EstateVista allows users to list, view, and search for properties based on
  location, price, and features. It provides secure authentication, user
  dashboards, and an efficient property filtering mechanism. The system
@@ -29,7 +30,8 @@
  Ensuring secure and smooth transactions.
  Enhancing the user experience through an intuitive interface.
  Implementing robust authentication and data security measures.
-User Type Role Main Actions
+ 
+**User Type Role Main Actions**
  Buyer Property Seeker
  Browse property listings, inquire
  about properties, schedule visits,
@@ -95,7 +97,6 @@ interface, clear processes, and responsive design make it accessible to a wide a
  System Requirements: Minimum 4GB RAM, Dual-Core Processor
  Storage: Local storage (at least 10GB free space for media files)
  Database: Django’s inbuilt SQLite database
- ⚙
  Software Requirements
  Backend: Django (Python)
  Frontend: HTML, CSS, JavaScript
@@ -104,11 +105,9 @@ interface, clear processes, and responsive design make it accessible to a wide a
  Local Server: Django’s built-in development server (runserver)
  
 **SYSTEM DESIGN & ARCHITECTURE**
- MVT (MODEL-VIEW-TEMPLATE) STRUCTURE IN DJANGO
- Models → User, Property, Category, Inquiry,
- Review, Message, Payment
- Views → CRUD for properties (List, Detail, Create,
- Update, Delete)
+**MVT (MODEL-VIEW-TEMPLATE) STRUCTURE IN DJANGO**
+ Models → User, Property, Category, Inquiry, Review, Message, Payment
+ Views → CRUD for properties (List, Detail, Create, Update, Delete)
  Templates → Buyer & Seller UI (Browse, Manage
  Listings). 
  
